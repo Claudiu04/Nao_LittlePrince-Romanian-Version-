@@ -1,0 +1,101 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
+import sys
+from naoqi import ALProxy
+import time
+
+IP = "127.0.0.1"   
+PORT = 9559
+
+def talk_and_move():
+    try:
+        
+        player = ALProxy("ALAudioPlayer", IP, PORT)
+        motion = ALProxy("ALMotion", IP, PORT)
+        posture = ALProxy("ALRobotPosture", IP, PORT)
+
+        motion.wakeUp()
+        posture.goToPosture("StandInit", 0.5)
+
+        player.post.playFile("/home/nao/ChapterTwoMp3/AmTraitAstfel.mp3")
+        
+        names = [ "LWristYaw", "LElbowYaw", "LElbowRoll", "LHand","LShoulderRoll", 
+                  "RWristYaw", "RElbowYaw", "RElbowRoll", "RHand","RShoulderRoll",
+                  "HeadPitch"]
+        
+        for i in range(2):
+            angles = [-1.2, -0.8, -1.5, 0.8,  0.3,
+                       1.2,  0.8,  1.5, 0.8, -0.3,
+                       -0.1]  
+            motion.setAngles(names, angles, 0.2)
+            time.sleep(3)
+
+            angles = [-1.5, -1.6, -0.6, 1.0,  0.6,
+                       1.5,  1.6,  0.6, 1.0, -0.6,
+                      -0.1] 
+            motion.setAngles(names, angles, 0.2)
+            time.sleep(3)
+
+            angles = [-0.8, -1.2, -1.0, 1.0,  0.0,
+                       0.8,  1.2,  1.0, 1.0,  0.0,
+                      -0.4] 
+            motion.setAngles(names, angles, 0.2)
+            time.sleep(3)
+
+            angles = [-0.3, -1.0, -1.3, 0.9,  0.8,
+                       0.3,  1.0,  1.3, 0.9, -0.8,
+                      -0.2] 
+            motion.setAngles(names, angles, 0.2)
+            time.sleep(3)
+
+            angles = [-0.5, -1.6, -0.6, 1.0,  0.6,
+                       0.5,  1.6,  0.6, 1.0, -0.6,
+                       0.1] 
+            motion.setAngles(names, angles, 0.2)
+            time.sleep(3)
+            angles = [-1.2, -1.9, -0.6, 1.0,  0.6,
+                       1.2,  1.9,  0.6, 1.0, -0.6,
+                       0.1] 
+            motion.setAngles(names, angles, 0.2)
+            time.sleep(3)
+
+        posture.goToPosture("StandInit", 0.5)
+
+        time.sleep(4)
+
+        motion.setAngles(["HeadYaw", "HeadPitch"], [0.9 , -0.1 ], 0.2)
+
+        time.sleep(4)
+
+        player.post.playFile("/home/nao/ChapterTwoMp3/Poftim.mp3")
+
+        time.sleep(4)
+
+        posture.goToPosture("StandInit", 0.5)
+
+        time.sleep(1)
+
+        player.post.playFile("/home/nao/ChapterTwoMp3/AmSaritInPicioare.mp3") 
+
+        time.sleep(3)
+
+        names = [ "LWristYaw", "LElbowYaw", "LElbowRoll", "LHand","LShoulderRoll","LShoulderPitch", 
+                  "RWristYaw", "RElbowYaw", "RElbowRoll", "RHand","RShoulderRoll","RShoulderPitch",
+                  "HeadPitch"]
+        angles = [-1.2,  0.3, -1.3, 1.0,  0.6, -1.0,
+                   1.2, -0.3,  1.3, 1.0, -0.6, -1.0,
+                   0.1]
+        
+        motion.setAngles(names, angles, 0.2)
+
+        time.sleep(1)
+
+        posture.gotoPosture("StandInit", 0.5)
+
+
+    except Exception as e:
+        print("Eroare:", e)
+
+
+if __name__ == "__main__":
+    talk_and_move()
