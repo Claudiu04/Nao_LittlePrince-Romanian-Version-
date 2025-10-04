@@ -18,13 +18,13 @@ def talk_and_move():
         posture.goToPosture("StandInit", 0.5)
 
 
-        player.post.playFile("/home/nao/PeVremeaMea.mp3")
+        player.post.playFile("/home/nao/ChapterOneMp3/PeVremeaMea.mp3")
 
         time.sleep(8)
 
         motion.moveTo(0.0, 0.0, 1.5)  
 
-        player.post.playFile("/home/nao/copiaAcestuiDesen.mp3")
+        player.post.playFile("/home/nao/ChapterOneMp3/copiaAcestuiDesen.mp3")
 
         names = ["LShoulderPitch","LShoulderRoll", "LElbowRoll", "LHand"]
         angles = [-1.0, 0.8, -0.06, 1.0]  
@@ -37,7 +37,7 @@ def talk_and_move():
         motion.moveTo(0.0, 0.0, -1.7)
 
 
-        player.post.playFile("/home/nao/incartea.mp3")
+        player.post.playFile("/home/nao/ChapterOneMp3/incartea.mp3")
 
         names = [ "LWristYaw", "LElbowYaw", "LElbowRoll", "LHand", 
                   "RWristYaw", "RElbowYaw", "RElbowRoll", "RHand"]
@@ -73,7 +73,7 @@ def talk_and_move():
         posture.goToPosture("StandInit", 0.5)
 
 
-        player.post.playFile("/home/nao/LeAmAratatOamenilor.mp3")
+        player.post.playFile("/home/nao/ChapterOneMp3/LeAmAratatOamenilor.mp3")
 
         time.sleep(6)
 
@@ -85,7 +85,7 @@ def talk_and_move():
 
         time.sleep(2)
 
-        player.post.playFile("/home/nao/DesenulMeu.mp3")
+        player.post.playFile("/home/nao/ChapterOneMp3/DesenulMeu.mp3")
 
         time.sleep(15)
 
@@ -101,7 +101,7 @@ def talk_and_move():
 
         time.sleep(1)
 
-        player.post.playFile("/home/nao/OameniiMariMau.mp3")
+        player.post.playFile("/home/nao/ChapterOneMp3/OameniiMariMau.mp3")
 
         time.sleep(3)
 
