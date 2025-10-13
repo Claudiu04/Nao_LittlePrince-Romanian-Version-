@@ -79,18 +79,27 @@ def talk_and_move():
 
         time.sleep(3)
 
-        names = [ "LWristYaw", "LElbowYaw", "LElbowRoll", "LHand","LShoulderRoll","LShoulderPitch", 
-                  "RWristYaw", "RElbowYaw", "RElbowRoll", "RHand","RShoulderRoll","RShoulderPitch",
+        names = [ "RWristYaw", "RElbowYaw", "RElbowRoll", "RHand","RShoulderRoll","RShoulderPitch",
                   "HeadPitch"]
-        angles = [-1.2,  0.3, -1.3, 1.0,  0.6, -1.0,
-                   1.2, -0.3,  1.3, 1.0, -0.6, -1.0,
-                   0.1]
+        angles = [1.2, -0.3,  1.3, 1.0, 0.3, -1.6,
+                  0.1]
         
         motion.setAngles(names, angles, 0.2)
 
-        time.sleep(1)
+        time.sleep(2)
 
-        posture.gotoPosture("StandInit", 0.5)
+        posture.goToPosture("StandInit", 0.5)
+
+
+        time.sleep(3)
+
+        names = ["RShoulderPitch","RShoulderRoll", "RElbowRoll", "RHand"]
+        angles = [-1.2, -0.8, 0.1, 1.0]  
+        motion.setAngles(names, angles, 0.3)
+
+        time.sleep(2)
+
+        posture.goToPosture("StandInit", 0.5)
 
 
     except Exception as e:
